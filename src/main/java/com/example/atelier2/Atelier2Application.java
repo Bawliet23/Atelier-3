@@ -21,62 +21,13 @@ public class Atelier2Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        patientRepository.save(new Patient(null,"mohamed",new Date(1999, Calendar.MAY,24),false,25));
-        patientRepository.save(new Patient(null,"yassine",new Date(1999, Calendar.MAY,24),false,25));
-        patientRepository.save(new Patient(null,"tarik",new Date(1999, Calendar.MAY,24),false,25));
-        List<Patient> patients = patientRepository.findAll();
-        patients.forEach(patient -> {
-            System.out.println("****************");
-            System.out.println(patient.getId());
-            System.out.println(patient.getNom());
-            System.out.println(patient.getDateNaissance());
-            System.out.println(patient.getScore());
-            System.out.println("****************");
-        });
-
-
-        /* chercher par nom */
-        Patient p1 = patientRepository.findByNom("mohamed");
-        System.out.println(p1.toString());
-
-
-        /*update*/
-        Patient p = patientRepository.findById(1L).orElse(null);
-        p.setNom("kira");
-        patientRepository.save(p);
-        List<Patient> patients1 = patientRepository.findAll();
-        System.out.println("update");
-        patients1.forEach(patient -> {
-            System.out.println("****************");
-            System.out.println(patient.getId());
-            System.out.println(patient.getNom());
-            System.out.println(patient.getDateNaissance());
-            System.out.println(patient.getScore());
-            System.out.println("****************");
-        });
-
-
-        /* delete */
-        patientRepository.deleteById(p.getId());
-        List<Patient> patients2 = patientRepository.findAll();
-        System.out.println("deleteById");
-        patients2.forEach(patient -> {
-            System.out.println("****************");
-            System.out.println(patient.getId());
-            System.out.println(patient.getNom());
-            System.out.println(patient.getDateNaissance());
-            System.out.println(patient.getScore());
-            System.out.println("****************");
-        });
-        /* cherche par nom et score */
-        List<Patient> patients3 = patientRepository.chercherPatient("yassine",22);
-        System.out.println("chercherPatient");
-        patients3.forEach(patient -> {
-            System.out.println(patient.getId());
-            System.out.println(patient.getNom());
-            System.out.println(patient.getDateNaissance());
-            System.out.println(patient.getScore());
-            System.out.println("****************");
-        });
+        patientRepository.save(new Patient(null, "mohamed", new Date(1999, Calendar.MAY, 24), false, 25));
+        patientRepository.save(new Patient(null, "yassine", new Date(1999, Calendar.MAY, 24), false, 25));
+        patientRepository.save(new Patient(null, "tarik", new Date(1999, Calendar.MAY, 24), false, 25));
+        patientRepository.save(new Patient(null, "gogo", new Date(1999, Calendar.MAY, 24), false, 100));
+        patientRepository.save(new Patient(null, "saitama", new Date(1999, Calendar.MAY, 24), false, 100));
+        patientRepository.save(new Patient(null, "tanjiro", new Date(1999, Calendar.MAY, 24), false, 25));
+        patientRepository.save(new Patient(null, "songoku", new Date(1999, Calendar.MAY, 24), false, 25));
+        patientRepository.save(new Patient(null, "narutp", new Date(1999, Calendar.MAY, 24), false, 25));
     }
 }
